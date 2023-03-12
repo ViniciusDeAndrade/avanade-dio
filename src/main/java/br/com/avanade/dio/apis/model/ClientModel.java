@@ -8,7 +8,6 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -46,6 +45,6 @@ public class ClientModel {
     }
 
     public ClientDTO toDto() {
-        return new ClientDTO(id, name, cpf, email, birthDate).buildLink();
+        return new ClientDTO(id, name, cpf, email, birthDate);
     }
 }
