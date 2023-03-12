@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("api/v1/client")
 public class ClientController {
 
     @Autowired
     private ClientService service;
 
-    @GetMapping
+    @GetMapping("{id}")
     public ClientDTO getClient() {
         return null;
     }
@@ -28,7 +28,7 @@ public class ClientController {
     }
 
     @PostMapping
-    public ResponseEntity<ClientDTO> createClient(@RequestBody @Valid ClientForm clientForm) {
-        return null;
+    public ResponseEntity<?> createClient(@RequestBody @Valid ClientForm clientForm) {
+        return ResponseEntity.ok("deu bom");
     }
 }
