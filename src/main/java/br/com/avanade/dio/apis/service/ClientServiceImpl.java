@@ -1,6 +1,7 @@
 package br.com.avanade.dio.apis.service;
 
 import br.com.avanade.dio.apis.dto.ClientDTO;
+import br.com.avanade.dio.apis.exception.ApplicationException;
 import br.com.avanade.dio.apis.form.ClientForm;
 import br.com.avanade.dio.apis.model.ClientModel;
 import br.com.avanade.dio.apis.repository.ClientRepository;
@@ -21,10 +22,10 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public ClientDTO getClient(int id) {
+    public ClientDTO getClient(int id) throws ApplicationException {
         var clientOp = repository.findById(id);
         if(clientOp.isPresent()) return clientOp.get().toDto();
-        throw new RuntimeException("server.error");
+        throw new ApplicationException("client.not.found");
     }
 
     @Override
