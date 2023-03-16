@@ -20,7 +20,9 @@ public class SecurityConfigurationPrd {
     @Bean
     public SecurityFilterChain configure(HttpSecurity http) throws Exception {
         return http.csrf().disable()
-            .authorizeHttpRequests().requestMatchers(HttpMethod.POST, "/api/v1/client").permitAll()
+            .authorizeHttpRequests()
+                .requestMatchers(HttpMethod.POST, "/api/v1/client").permitAll()
+//                .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
             .anyRequest().authenticated().and().build();
 
     }
