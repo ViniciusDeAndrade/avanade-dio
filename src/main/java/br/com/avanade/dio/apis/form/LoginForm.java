@@ -6,5 +6,5 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public class LoginForm {
-    private String email, senha;
+    private String email, password;
 }

@@ -39,7 +39,7 @@ public class ClientController {
      */
     @PostMapping("/signIn")
     public ResponseEntity createUser(@RequestBody LoginForm form) {
-        service.createClient(form);
-        return ResponseEntity.ok().body(null);
+        var client = service.createClient(form);
+        return ResponseEntity.ok().body(client);
     }
 }

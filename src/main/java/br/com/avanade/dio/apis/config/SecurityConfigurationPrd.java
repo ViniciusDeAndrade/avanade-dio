@@ -22,7 +22,7 @@ public class SecurityConfigurationPrd {
         return http.csrf().disable()
             .authorizeHttpRequests()
                 .requestMatchers(HttpMethod.POST, "/api/v1/client").permitAll()
-//                .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
             .anyRequest().authenticated().and().build();
 
     }

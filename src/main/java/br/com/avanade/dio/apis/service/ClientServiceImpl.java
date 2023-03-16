@@ -36,7 +36,7 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public ClientDTO createClient(LoginForm form) {
-        var client = repository.save(new ClientModel(form.getEmail(), form.getSenha()));
+        var client = repository.save(new ClientModel(form.getEmail(), form.getPassword()));
         return client.toDto();
     }
 }
