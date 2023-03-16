@@ -2,8 +2,8 @@ package br.com.avanade.dio.apis.controller;
 
 import br.com.avanade.dio.apis.dto.ClientDTO;
 import br.com.avanade.dio.apis.form.ClientForm;
+import br.com.avanade.dio.apis.form.LoginForm;
 import br.com.avanade.dio.apis.service.ClientService;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +28,18 @@ public class ClientController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createClient(@RequestBody @Valid ClientForm clientForm) {
-        return ResponseEntity.ok("deu bom");
+    public ResponseEntity<?> createClient(@RequestBody ClientForm clientForm) {
+        return null;
+    }
+
+    /**
+     *
+     * @param form
+     * @return
+     */
+    @PostMapping("/signIn")
+    public ResponseEntity createUser(@RequestBody LoginForm form) {
+        service.createClient(form);
+        return ResponseEntity.ok().body(null);
     }
 }

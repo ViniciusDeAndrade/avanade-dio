@@ -3,6 +3,7 @@ package br.com.avanade.dio.apis.service;
 import br.com.avanade.dio.apis.dto.ClientDTO;
 import br.com.avanade.dio.apis.exception.ApplicationException;
 import br.com.avanade.dio.apis.form.ClientForm;
+import br.com.avanade.dio.apis.form.LoginForm;
 import br.com.avanade.dio.apis.model.ClientModel;
 import br.com.avanade.dio.apis.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,5 +32,11 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public List<ClientDTO> getClients() {
         return repository.findAll().stream().map(ClientModel::toDto).toList();
+    }
+
+    @Override
+    public ClientDTO createClient(LoginForm form) {
+        var client = repository.save(new ClientModel(form.getEmail(), form.getSenha()));
+        return client.toDto();
     }
 }
